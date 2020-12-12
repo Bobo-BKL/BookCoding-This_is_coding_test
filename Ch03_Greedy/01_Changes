@@ -1,0 +1,12 @@
+user = 1260
+
+cnt = 0
+
+# 큰단위의 화폐부터 차례대로 확인
+list = [50000, 10000, 5000, 1000, 500, 100, 50, 10, 5, 1]
+
+for coin in list:
+    cnt += user // coin
+    user %= coin
+
+print(cnt)
