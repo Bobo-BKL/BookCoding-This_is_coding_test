@@ -9,7 +9,7 @@ been[x][y] = 1
 
 u_map  = []
 for i in range(row):
-    u_map.append(list(map(int, input().split())))
+	u_map.append(list(map(int, input().split())))
 	
 def turn_left():
 	global direction
