@@ -13,7 +13,7 @@ for i in range(row):
 	
 def turn_left():
 	global direction
-	direction -= 1
+        direction -= 1
 	if direction < 0: direction = 3
 
 result = 1
