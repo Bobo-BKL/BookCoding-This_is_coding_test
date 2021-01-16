@@ -1,10 +1,10 @@
-import sys
+# import sys
 
 n = int(input())
 store = list(map(int, input().split()))
 
 m = int(input())
-find = list(map(int, input().split()))
+find = list(map(int, input().split())) # list(map(int, sys.stdin.readline().rstrip().split()))
 
 store.sort()
 
