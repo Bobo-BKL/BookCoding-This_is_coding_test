@@ -9,3 +9,5 @@ array = sorted(array, key = lambda student: student[1])
 
 for i in array:
     print(i[0], end = ' ')
+    
+# print([x[0] for x in d])
