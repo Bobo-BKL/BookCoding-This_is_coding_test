@@ -2,7 +2,7 @@ parent = [i for i in range(7)]
 unions = [(1, 4), (2, 3), (1, 2), (5, 6)]
 
 def find_parent(parent, x):
-    if parent[x] != x: return find_parent(parent, parent[x])
+    if parent[x] != x: parent[x] = find_parent(parent, parent[x]) # return find_parent(parent, parent[x])
     else: return x
     
 def union_parent(parent, a, b):
