@@ -1,5 +1,3 @@
-n = int(input())
-data = [list(map(int, input().split())) for _ in range(n)]
 sand_spread = [
     [0, 0, 0.02, 0, 0],
     [0, 0.1, 0.07, 0.01, 0],
@@ -11,19 +9,7 @@ dx = [0, 1, 0, -1]
 dy = [-1, 0, 1, 0]
 
 
-def spin_sand_spread():
-    global sand_spread
-
-    temp = [[0] * n for _ in range(5)]
-    for i in range(5):
-        for j in range(5):
-            temp[5 - j - 1][i] = sand_spread[i][j]
-
-    sand_spread = temp
-
-
-def sand_redistributions(x, y):
-    global data
+def sand_redistributions(data, n, x, y):
     get_out = 0
     total_sand = left = data[x][y]
 
@@ -56,6 +42,10 @@ def sand_redistributions(x, y):
 
 
 def get_out_sand():
+    global sand_spread
+    n = int(input())
+    data = [list(map(int, input().split())) for _ in range(n)]
+
     result = 0
     current_x = current_y = n // 2
     p_cnt = 0
@@ -65,9 +55,9 @@ def get_out_sand():
             if dir % 2 == 0: p_cnt += 1
             for _ in range(p_cnt):
                 current_x, current_y = current_x + dx[dir], current_y + dy[dir]
-                result += sand_redistributions(current_x, current_y)
+                result += sand_redistributions(data, n, current_x, current_y)
                 if current_x == 0 and current_y == 0: return result
-            spin_sand_spread()
+            sand_spread = list(zip(*sand_spread))[::-1]
 
 
 print(get_out_sand())
