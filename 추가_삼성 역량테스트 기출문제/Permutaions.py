@@ -1,16 +1,16 @@
 def permutation(data, r):
     result = []
 
-    def permute(p, index):
+    def permute(p, indexs):
         if len(p) == r:
             result.append(p)
             return
         for i, element in enumerate(data):
-            if index == i: continue
-            permute(p + [element], i)
+            if i in indexs: continue
+            permute(p + [element], indexs + [i])
 
-    permute([], -1)
+    permute([], [])
     return result
 
 
-print(permutation([1, 1, 2], 2))
+print(permutation((1, 2, 3, 4), 3))
